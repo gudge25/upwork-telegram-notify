@@ -69,22 +69,23 @@ def telegram_push(chat_id, item, token):
         url=f'https://api.telegram.org/bot{token}/sendMessage',
         data={'chat_id': chat_id, 'text': text}
     ).json()
-    return response
 
 
 root = os.path.dirname(os.path.realpath(__file__))
 cfg = config(root + '/config.json')
 processed = get_processed_posts(root + '/processed.json')
-content = get_xml(cfg['upwork_rss_feed'])
-items = get_posts(content)
 p = 0
-p_file = root + '/processed.json'
 
-for item in items:
-    if is_processed(processed, item['link']) is False:
-        processed.append(item['link'])
-        telegram_push(cfg['telegram_chat_id'], item, cfg['telegram_api_token'])
-        p = p + 1
+for feed in cfg['upwork_rss_feeds']:
+    content = get_xml(feed)
+    items = get_posts(content)
+    p_file = root + '/processed.json'
+
+    for item in items:
+        if is_processed(processed, item['link']) is False:
+            processed.append(item['link'])
+            telegram_push(cfg['telegram_chat_id'], item, cfg['telegram_api_token'])
+            p = p + 1
 
 if p > 0:
     update_db(p_file, processed)

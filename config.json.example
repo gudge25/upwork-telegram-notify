@@ -1,5 +1,9 @@
 {
-	"upwork_rss_feed": "",
+	"upwork_rss_feeds": [
+		"https://www.upwork.com/ab/feed/jobs/rss?q=Shopify",
+		"https://www.upwork.com/ab/feed/jobs/rss?q=Laravel"
+		"https://www.upwork.com/ab/feed/jobs/rss?q=Wordpress"
+	],
 	"telegram_api_token": "",
 	"telegram_chat_id": ""
 }
