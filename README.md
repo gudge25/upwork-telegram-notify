@@ -1,4 +1,4 @@
-# twitch-live-telegram
+# upwork-telegram-notify
 
 This Python script will automatically post new items from your Upwork RSS feed to your desired Telegram channel.
 
