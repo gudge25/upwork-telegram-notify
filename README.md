@@ -2,6 +2,12 @@
 
 This Python script will automatically post new items from your Upwork RSS feed to your desired Telegram channel.
 
+- Install
+```
+pip3 install requests
+```
+- mv config.json.example to config.json
+
 ## Installation
 
 1. Clone the repository
